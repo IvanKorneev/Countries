@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
-import {useEffect} from ".";
 import {IoMoon, IoMoonOutline} from "react-icons/io5";
 import {Container} from "../Container/Container";
+import {useEffect} from "react";
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
