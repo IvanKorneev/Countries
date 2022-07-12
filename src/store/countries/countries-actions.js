@@ -15,7 +15,7 @@ export const setError = (err) => ({
     payload: err
 });
 
-export const loadCountries = () => (dispatch, {client, api}) => {
+export const loadCountries = () => (dispatch, _, {client, api}) => {
     dispatch(setLoading());
     client.get(api.ALL_COUNTRIES).then(({data}) => dispatch(setCountries(data)))
         .catch((err) => dispatch(setError(err.message)))
