@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectAllCountries, selectCountriesInfo} from "../../store/countries/countries-selectors";
 import {loadCountries} from "../../store/countries/countries-actions";
 import {useEffect} from "react";
+import Spinner from "../Spinner";
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -24,6 +25,8 @@ const HomePage = () => {
     return (
         <>
             <Controls/>
+            {error && <h2>Can't fetch data</h2>}
+            {status === 'loading' && <Spinner/>}
             <List>
                 {countries.map((c) => {
                     const countryInfo = {
