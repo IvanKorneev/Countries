@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import Search from "../Search";
 import {CustomSelect} from "../CustomSelect/CustomSelect";
+import {useDispatch, useSelector} from "react-redux";
+import {selectRegion} from "../../store/controls/controls-selectors";
+import {setRegion} from "../../store/controls/controls-actions";
 
 const optionsMap = {
     'Africa': {value: 'Africa', label: 'Africa'},
@@ -24,6 +27,11 @@ const Wrapper = styled.div`
 `;
 
 const Controls = () => {
+    const dispatch = useDispatch();
+    const region = useSelector(selectRegion);
+    const handelSelect = (region) => {
+        dispatch(setRegion(region?.value || ''));
+    }
     return (
         <Wrapper>
             <Search/>
@@ -32,9 +40,8 @@ const Controls = () => {
                 placeholder="Filter by Region"
                 isClearable
                 isSearchable={false}
-                value={''}
-                onChange={() => {
-                }}
+                value={optionsMap[region]}
+                onChange={handelSelect}
             />
         </Wrapper>
     );
