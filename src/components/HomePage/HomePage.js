@@ -27,7 +27,7 @@ const HomePage = () => {
             <Controls/>
             {error && <h2>Can't fetch data</h2>}
             {status === 'loading' && <Spinner/>}
-            <List>
+            {status === 'received' && (<List>
                 {countries.map((c) => {
                     const countryInfo = {
                         img: c.flags.png,
@@ -56,7 +56,8 @@ const HomePage = () => {
                         />
                     );
                 })}
-            </List>
+            </List>)}
+
         </>
     );
 };
