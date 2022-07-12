@@ -5,4 +5,5 @@ import {countriesReducer} from "./countries/countries-reducer";
 export const rootReducer = combineReducers({
     theme: themeReducer,
     countries: countriesReducer,
+    controls:countriesReducer
 });
