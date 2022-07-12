@@ -5,7 +5,7 @@ import App from "./components/App";
 import './index.css'
 import {Provider} from "react-redux";
 import {store} from "./store";
-import ErrorBoundry from "./components/error-boundry";
+import ErrorBoundry from "./components/Error-boundry";
 
 
 ReactDOM.render(
