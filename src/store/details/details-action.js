@@ -9,12 +9,15 @@ export const setError = (err) => ({
     type: SET_ERROR,
     payload: err
 });
-export const setCountries = (countries) => ({
+export const setCountry = (country) => ({
     type: SET_COUNTRY,
-    payload: countries
+    payload: country
 });
 
 export const loadCountryByName = (name) => (dispatch, _, {client, api}) => {
     dispatch(setLoading());
-    client.get(api.searchByCountry(name)).then((data) => dispatch(setCountries(data))).catch((err) => dispatch(setError(err)));
+    client.get(api.searchByCountry(name))
+        .then(({data}) => dispatch(setCountry(data[0])))
+        .catch((err) => dispatch(setError(err)));
+
 }
