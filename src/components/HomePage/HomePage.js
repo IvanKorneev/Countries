@@ -11,16 +11,15 @@ import {
 import {loadCountries} from "../../store/countries/countries-actions";
 import {useEffect} from "react";
 import Spinner from "../Spinner";
-import {selectSearch} from "../../store/controls/controls-selectors";
+import {selectControls} from "../../store/controls/controls-selectors";
 
 const HomePage = () => {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    const search = useSelector(selectSearch);
-    const countries = useSelector(state => selectVisibleCountries(state, {search}));
+    const {search, region} = useSelector(selectControls);
+    const countries = useSelector(state => selectVisibleCountries(state, {search, region}));
     const {status, error, qty} = useSelector(selectCountriesInfo);
-
 
 
     useEffect(() => {
