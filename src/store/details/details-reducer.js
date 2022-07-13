@@ -5,7 +5,7 @@ const initialState = {
     status: 'idle',
     error: null
 };
-export const detailsRegion = (state = initialState, {type, payload}) => {
+export const detailsReducers= (state = initialState, {type, payload}) => {
     switch (type) {
         case SET_LOADING:
             return {
